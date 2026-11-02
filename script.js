@@ -1,4 +1,9 @@
 (function () {
+  if (!location.hash) {
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+  }
+
   const CONTENT_KEY = "keri-site-content";
   const PASS_KEY = "keri-admin-pass";
   const AUTH_KEY = "keri-admin-auth";
