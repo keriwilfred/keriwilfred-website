@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Affordable graphic design, logo, flyer, CV and website services for shops, businesses and organizations." />
+  <title>keriwilfred — Design & Web Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <nav class="nav container">
+      <a href="#top" class="logo">keri<span>wilfred</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://wa.me/250796159206" class="btn btn-primary btn-sm" id="navWhatsapp" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="profile-pic reveal">
+          <span class="profile-fallback" aria-hidden="true">KW</span>
+          <img id="profileImg" src="profile.jpg" alt="Keri Wilfred" width="140" height="140" onerror="this.style.display='none'" />
+        </div>
+        <p class="eyebrow reveal" id="heroEyebrow">Design &amp; Web Services</p>
+        <h1 class="reveal" id="heroTitle"></h1>
+        <p class="hero-sub reveal" id="heroSub"></p>
+        <div class="hero-actions reveal">
+          <a href="#packages" class="btn btn-primary">View packages</a>
+          <a href="https://wa.me/250796159206" class="btn btn-ghost" id="heroWhatsapp" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+        <ul class="hero-stats reveal" id="heroStats"></ul>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" id="servicesEyebrow"></p>
+          <h2 id="servicesTitle"></h2>
+          <p class="section-sub" id="servicesSub"></p>
+        </div>
+        <div class="cards-grid services-grid" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="packages">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" id="packagesEyebrow"></p>
+          <h2 id="packagesTitle"></h2>
+          <p class="section-sub" id="packagesSub"></p>
+        </div>
+        <div class="cards-grid packages-grid" id="packagesGrid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow" id="contactEyebrow"></p>
+          <h2 id="contactTitle"></h2>
+          <p class="section-sub" id="contactSub"></p>
+        </div>
+        <div class="contact-grid" id="contactGrid"></div>
+        <div class="contact-cta reveal">
+          <a href="https://wa.me/250796159206?text=Hi!%20I'd%20like%20to%20discuss%20a%20project" class="btn btn-primary btn-lg" id="contactCta" target="_blank" rel="noopener">Start a WhatsApp chat</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="#top" class="logo">keri<span>wilfred</span></a>
+      <ul class="footer-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button type="button" class="footer-signin" id="footerSignin">Sign in</button></li>
+      </ul>
+      <p class="copyright">© <span id="year"></span> keriwilfred</p>
+    </div>
+  </footer>
+
+  <div class="admin-overlay" id="adminOverlay" hidden>
+    <div class="admin-panel" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+      <header class="admin-header">
+        <h2 id="adminTitle">Site Admin</h2>
+        <button type="button" class="admin-close" id="adminClose" aria-label="Close admin panel">&times;</button>
+      </header>
+      <div class="admin-body">
+        <div class="admin-login" id="adminLogin">
+          <p>Sign in to edit your website.</p>
+          <input type="password" id="adminPassword" class="admin-input" placeholder="Password" autocomplete="current-password" />
+          <p class="admin-error" id="adminLoginError" hidden>Wrong password. Try again.</p>
+          <button type="button" class="btn btn-primary" id="adminLoginBtn">Sign in</button>
+          <p class="admin-note">Default password is <strong>admin123</strong>. Change it under Access after signing in. This protects edits in this browser only.</p>
+        </div>
+
+        <div class="admin-editor" id="adminEditor" hidden>
+          <details class="admin-group" open>
+            <summary>Hero</summary>
+            <label>Small label<input type="text" id="adHeroEyebrow" class="admin-input" /></label>
+            <label>Title — start<input type="text" id="adHeroTitleBefore" class="admin-input" /></label>
+            <label>Title — highlighted word(s)<input type="text" id="adHeroTitleHighlight" class="admin-input" /></label>
+            <label>Title — end<input type="text" id="adHeroTitleAfter" class="admin-input" /></label>
+            <label>Subtitle<textarea id="adHeroSub" class="admin-input" rows="3"></textarea></label>
+            <div id="adStats" class="admin-repeat"></div>
+            <button type="button" class="btn btn-ghost btn-sm" id="adAddStat">Add stat</button>
+          </details>
+
+          <details class="admin-group">
+            <summary>Section headings</summary>
+            <h4>Services</h4>
+            <label>Label<input type="text" id="adServicesEyebrow" class="admin-input" /></label>
+            <label>Title<input type="text" id="adServicesTitle" class="admin-input" /></label>
+            <label>Subtitle<input type="text" id="adServicesSub" class="admin-input" /></label>
+            <h4>Packages</h4>
+            <label>Label<input type="text" id="adPackagesEyebrow" class="admin-input" /></label>
+            <label>Title<input type="text" id="adPackagesTitle" class="admin-input" /></label>
+            <label>Subtitle<input type="text" id="adPackagesSub" class="admin-input" /></label>
+            <h4>Contact</h4>
+            <label>Label<input type="text" id="adContactEyebrow" class="admin-input" /></label>
+            <label>Title<input type="text" id="adContactTitle" class="admin-input" /></label>
+            <label>Subtitle<input type="text" id="adContactSub" class="admin-input" /></label>
+          </details>
+
+          <details class="admin-group" open>
+            <summary>Services</summary>
+            <div id="adServices" class="admin-repeat"></div>
+            <button type="button" class="btn btn-ghost btn-sm" id="adAddService">Add service</button>
+          </details>
+
+          <details class="admin-group" open>
+            <summary>Packages</summary>
+            <div id="adPackages" class="admin-repeat"></div>
+            <button type="button" class="btn btn-ghost btn-sm" id="adAddPackage">Add package</button>
+          </details>
+
+          <details class="admin-group">
+            <summary>Contact</summary>
+            <label>WhatsApp number (digits only, with country code)<input type="text" id="adWhatsapp" class="admin-input" placeholder="250796159206" /></label>
+            <label>WhatsApp display text<input type="text" id="adWhatsappDisplay" class="admin-input" placeholder="+250 796 159 206" /></label>
+            <label>Email<input type="text" id="adEmail" class="admin-input" /></label>
+            <label>LinkedIn username<input type="text" id="adLinkedin" class="admin-input" /></label>
+            <label>LinkedIn profile URL<input type="text" id="adLinkedinUrl" class="admin-input" /></label>
+          </details>
+
+          <details class="admin-group" open>
+            <summary>Profile photo</summary>
+            <p class="admin-note" style="margin-top:0;margin-bottom:0.75rem">Choose a photo, then adjust the focus sliders so your face is centered in the circle. Save to publish.</p>
+            <div class="admin-inline-actions" style="margin-bottom:0.75rem">
+              <button type="button" class="btn btn-ghost btn-sm" id="adUploadPhoto">Choose photo…</button>
+              <button type="button" class="btn btn-ghost btn-sm" id="adResetPhoto">Reset to default photo</button>
+              <input type="file" id="adPhotoFile" accept="image/*" hidden />
+            </div>
+            <label>Face focus — horizontal (0% left, 100% right)<input type="range" id="adPhotoX" class="admin-input" min="0" max="100" step="1" style="padding:0" /></label>
+            <label>Face focus — vertical (0% top, 100% bottom)<input type="range" id="adPhotoY" class="admin-input" min="0" max="100" step="1" style="padding:0" /></label>
+          </details>
+
+          <details class="admin-group">
+            <summary>Access</summary>
+            <label>New admin password<input type="password" id="adNewPassword" class="admin-input" placeholder="Leave blank to keep current" /></label>
+            <p class="admin-note">Content is saved in this browser (localStorage). Use <strong>Export content</strong> to download a backup file.</p>
+            <div class="admin-inline-actions">
+              <button type="button" class="btn btn-ghost btn-sm" id="adExport">Export content</button>
+              <button type="button" class="btn btn-ghost btn-sm" id="adImportBtn">Import content</button>
+              <input type="file" id="adImportFile" accept="application/json,.json" hidden />
+            </div>
+          </details>
+
+          <div class="admin-actions">
+            <button type="button" class="btn btn-primary" id="adminSave">Save &amp; publish</button>
+            <button type="button" class="btn btn-ghost" id="adminRevert">Reset to defaults</button>
+            <button type="button" class="btn btn-ghost" id="adminLogout">Lock admin</button>
+          </div>
+          <p class="admin-status" id="adminStatus" hidden></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
