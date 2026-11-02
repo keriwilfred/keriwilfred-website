@@ -160,14 +160,16 @@
 
           <details class="admin-group" open>
             <summary>Profile photo</summary>
-            <p class="admin-note" style="margin-top:0;margin-bottom:0.75rem">Choose a photo, then adjust the focus sliders so your face is centered in the circle. Save to publish.</p>
+            <p class="admin-note" style="margin-top:0;margin-bottom:0.75rem">Choose a photo and adjust focus. Then click <strong>Publish photo to website</strong> so every device sees it (other browsers only show the file on the site, not your local preview).</p>
             <div class="admin-inline-actions" style="margin-bottom:0.75rem">
               <button type="button" class="btn btn-ghost btn-sm" id="adUploadPhoto">Choose photo…</button>
+              <button type="button" class="btn btn-primary btn-sm" id="adPublishPhoto">Publish photo to website</button>
               <button type="button" class="btn btn-ghost btn-sm" id="adResetPhoto">Reset to default photo</button>
               <input type="file" id="adPhotoFile" accept="image/*" hidden />
             </div>
             <label>Face focus — horizontal (0% left, 100% right)<input type="range" id="adPhotoX" class="admin-input" min="0" max="100" step="1" style="padding:0" /></label>
             <label>Face focus — vertical (0% top, 100% bottom)<input type="range" id="adPhotoY" class="admin-input" min="0" max="100" step="1" style="padding:0" /></label>
+            <p class="admin-note">Publishing downloads <strong>profile.jpg</strong>. Put that file in the site folder and push to GitHub so all devices get it.</p>
           </details>
 
           <details class="admin-group">

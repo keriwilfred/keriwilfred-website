@@ -827,10 +827,37 @@
           img.src = dataUrl;
           img.style.display = "block";
         }
-        showStatus("Photo loaded. Adjust focus, then Save & publish.");
+        showStatus("Photo loaded. Adjust focus, then Publish photo to website.");
       };
       reader.readAsDataURL(f);
       adPhotoFile.value = "";
+    });
+  }
+
+  const adPublishPhoto = document.getElementById("adPublishPhoto");
+  if (adPublishPhoto) {
+    adPublishPhoto.addEventListener("click", function () {
+      const img = document.getElementById("profileImg");
+      let dataUrl = "";
+      try {
+        dataUrl = localStorage.getItem(PHOTO_KEY) || "";
+      } catch (_) {}
+      if (!dataUrl && img && img.src && img.src.indexOf("data:") === 0) {
+        dataUrl = img.src;
+      }
+      if (!dataUrl) {
+        showStatus("Choose a photo first, then publish.");
+        return;
+      }
+      const a = document.createElement("a");
+      a.href = dataUrl;
+      a.download = "profile.jpg";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      showStatus(
+        "Downloaded profile.jpg. Put it in the site folder, then push to GitHub so all devices show it."
+      );
     });
   }
 
